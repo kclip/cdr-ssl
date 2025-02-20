@@ -1,0 +1,5 @@
+type: "TabularTuning"
+momentum: 0.0
+use_unlabeled_data: false
+kwargs:
+    init_value: 1.0

@@ -1,0 +1,42 @@
+# @package _global_
+defaults:
+  - override /dataset: toy_example
+  - override /optimizer: AdamW
+  - override /tuning: context_tabular_binary
+  - override /bias_estimate_schedule: linear
+  - override /pretrained_model: toy_example_pretrained
+
+model_training:
+  n_epochs: 40
+  batch_size: 100000
+  labeled_batch_size: -1
+  unlabeled_batch_size: -1
+  labeled_ratio: 0.004
+  deterministic_labeled_split: true
+  checkpoint_freq: ${model_training.n_epochs}
+
+loss:
+    type: "MSESqueezeLoss"
+    kwargs: {}
+val_loss:
+    type: "MSESqueezeLoss"
+    kwargs: {}
+
+optimizer:
+  lr: 5e-4
+
+lr_schedule:
+  type: null
+  kwargs: {}
+
+model:
+  type: "FFNet"  # Neural network with Fourier input features
+  kwargs:
+    n_inputs_dim: 1
+    n_outputs_dim: 1
+    n_freqs_emb: 10
+    max_freq_emb: 10.0
+
+metrics:
+  - type: "MSESqueezeLoss"
+    kwargs: {}

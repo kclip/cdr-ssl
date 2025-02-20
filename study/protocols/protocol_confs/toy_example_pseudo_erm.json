@@ -1,0 +1,13 @@
+{
+    "protocol_name": "toy_example_pseudo_erm",
+    "n_runs": null,
+    "logs_subdir": "toy_example/pseudo_erm",
+    "command": "python ./study/train_model_pseudo_erm.py",
+    "params_list": [
+        {
+            "key": "+experiment",
+            "values": ["toy_example"],
+            "label": null
+        }
+    ]
+}

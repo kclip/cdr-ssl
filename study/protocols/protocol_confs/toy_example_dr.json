@@ -1,0 +1,13 @@
+{
+    "protocol_name": "toy_example_dr",
+    "n_runs": null,
+    "logs_subdir": "toy_example/dr",
+    "command": "python ./study/train_model_dr.py",
+    "params_list": [
+        {
+            "key": "+experiment",
+            "values": ["toy_example"],
+            "label": null
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+name: cdr
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - ipykernel
+  - nbformat
+  - numpy<2.0.0
+  - matplotlib
+  - pillow
+  - pandas
+  - fastparquet
+  - scipy
+  - pip
+  - pip:
+    - torch==2.5.1
+    - torchvision
+    - torchaudio
+    - regex
+    - tqdm
+    - hydra-core
+    - tensorboard
+    - -e \.

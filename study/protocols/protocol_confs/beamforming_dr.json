@@ -1,0 +1,24 @@
+{
+    "protocol_name": "beamforming_dr",
+    "n_runs": 10,
+    "logs_subdir": "beamforming/dr",
+    "command": "python ./study/train_model_dr.py",
+    "params_list": [
+        {
+            "key": "+experiment",
+            "values": ["beamforming"],
+            "label": null
+        },
+        {
+            "key": "model_training.labeled_ratio",
+            "values": [
+                0.1,
+                0.05,
+                0.02,
+                0.01,
+                0.005
+            ],
+            "label": "labeled_ratio"
+        }
+    ]
+}

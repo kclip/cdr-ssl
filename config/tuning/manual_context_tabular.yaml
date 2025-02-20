@@ -1,0 +1,16 @@
+type: "ManualContextualTabularTuning"
+momentum: 0.0
+kwargs:
+    schedule_values: [
+        [1.0, 1.0],
+        [0.5, 1.0],
+        [0.2, 1.0],
+        [0.1, 1.0],
+        [0.0, 1.0],
+    ]
+    schedule_epochs: [
+        20,
+        40,
+        60,
+        80
+    ]

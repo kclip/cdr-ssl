@@ -1,0 +1,1 @@
+python ./study/train_model_cdr.py +protocol_name=toy_example_cdr logs_subdir="toy_example/cdr/" +experiment=toy_example tuning=context_tabular_binary

@@ -1,0 +1,55 @@
+defaults:
+  - dataset: toy_example  # Dataset config in config/dataset/toy_example.yaml
+  - bias_estimate_schedule: constant  # Curriculum learning schedule config in config/bias_estimate_schedule/constant.yaml
+  - tuning: tabular  # CDR tuning parameter config in config/tuning/tabular.yaml
+  - optimizer: SGD   # Optimizer config in config/optimizer/SGD.yaml
+  - pretrained_model: toy_example_pretrained  # Teacher model config in config/pretrained_model/toy_example_pretrained.yaml
+  - _self_
+
+# Directories
+project_dir: ${hydra:runtime.cwd}  # Project directory path
+tb_dir: ${project_dir}/logs/tensorboard  # Tensorboard logs path
+logs_dir: ${project_dir}/logs  # Training logs directory
+logs_subdir: default  # Training logs subdir (logs are stored in <logs_dir>/<logs_subdir>)
+
+# Training
+model:  # Trainable model
+  type: "SimpleNet"  # Model class
+  kwargs:  # Model hyperparameters
+    n_inputs_dim: 1
+    n_outputs_dim: 1
+
+model_training:  # Training hyperparameters
+  n_epochs: 80  # Number of epochs
+  batch_size: 1024  # Batch size for supervised ERM
+  labeled_batch_size: -1  # Batch size for labeled data in DR, TDR, CDR and pseudo-ERM  (-1 -> use all available data in each batch)
+  unlabeled_batch_size: -1  # Batch size for unlabeled data in DR, TDR, CDR and pseudo-ERM  (-1 -> use all available data in each batch)
+  labeled_ratio: 0.5  # Ratio of labeled data (specifies the partition of the initial training set into labeled and unlabeled samples)
+  checkpoint_freq: -1  # Frequency of model checkpoints between epochs (-1 -> save a model checkpoint at each epoch)
+  checkpoint_best: true  # If true, continuously update a checkpoint containing the model with the best validation ratio
+  deterministic_labeled_split: false  # If true, deterministically split the training data between labeled and unlabeled samples; otherwise, if false, randomly split the training data.
+
+lr_schedule:  # Learning rate (LR) schedule
+  type: null  # If null, do not use a LR schedule
+  kwargs: {}  # LR schedule hyperparameters
+#lr_schedule:
+#  type: "CosineAnnealingLR"
+#  kwargs:
+#    T_max: ${model_training.n_epochs}
+#    eta_min: 5e-4
+
+loss:  # Training loss
+  type: "CrossEntropyLoss"  # Training loss class
+  kwargs: {}  # Training loss hyperparameters
+val_loss:  # Validation loss
+  type: "CrossEntropyLoss"  # Validation loss class
+  kwargs: {}  # Validation loss hyperparameters
+metrics: []  # List of metrics to be displayed during training (on validation data). The same metrics are used at the end of training to evaluate the model on test data
+
+# Study
+study:
+    chunk_size: null  # Maximum number of concurrent backward passes, adjust depending on memory usage
+    n_val_displays_per_epoch: 3  # Number of times validation metrics are displayed per epoch
+    overwrite: true  # Overwrite pre-existing logs
+    preload_pseudolabels: true  # Preload pseudo-labels in memory at the beginning of training
+    num_workers: 1  # Number of workers for dataloaders

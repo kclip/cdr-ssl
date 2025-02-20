@@ -1,0 +1,40 @@
+# @package _global_
+defaults:
+  - override /dataset: beamforming
+  - override /optimizer: AdamW
+  - override /tuning: context_tabular_binary
+  - override /bias_estimate_schedule: linear
+  - override /pretrained_model: beamforming_los_pretrained
+
+model_training:
+  n_epochs: 100
+  batch_size: 1024
+  labeled_batch_size: -1
+  unlabeled_batch_size: 1024
+  labeled_ratio: 0.05
+
+loss:
+    type: "AngleCosineLoss"
+    kwargs: {}
+val_loss:
+    type: "AngleCosineLoss"
+    kwargs: {}
+
+optimizer:
+  lr: 5e-4
+
+lr_schedule:
+  type: null
+  kwargs: {}
+
+model:
+  type: "FFNet"  # Neural network with Fourier input features
+  kwargs:
+    n_inputs_dim: 3
+    n_outputs_dim: 2
+    n_freqs_emb: 20
+    max_freq_emb: 20.0
+
+metrics:
+  - type: "AngleCosineLoss"
+    kwargs: {}

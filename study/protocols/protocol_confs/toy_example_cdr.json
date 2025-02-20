@@ -1,0 +1,18 @@
+{
+    "protocol_name": "toy_example_cdr",
+    "n_runs": null,
+    "logs_subdir": "toy_example/cdr",
+    "command": "python ./study/train_model_cdr.py",
+    "params_list": [
+        {
+            "key": "+experiment",
+            "values": ["toy_example"],
+            "label": null
+        },
+        {
+            "key": "tuning",
+            "values": ["context_tabular_binary"],
+            "label": null
+        }
+    ]
+}

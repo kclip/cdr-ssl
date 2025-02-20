@@ -1,0 +1,6 @@
+type: "ContextualTabularTuning"
+momentum: 0.0
+use_unlabeled_data: false
+kwargs:
+    init_value: [1.0, 1.0]
+    n_contexts: 2

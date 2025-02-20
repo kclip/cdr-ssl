@@ -1,0 +1,3 @@
+type: "BiasEstimateConstantSchedule"
+kwargs:
+    value: 1.0

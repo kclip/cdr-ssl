@@ -1,0 +1,4 @@
+type: "SGD"
+lr: 1e-2
+kwargs:
+  momentum: 0.0

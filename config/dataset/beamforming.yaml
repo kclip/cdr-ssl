@@ -1,0 +1,4 @@
+type: "BEAMFORMING"
+folder: ${project_dir}/datasets/beamforming
+validation_ratio: 0.1
+kwargs: {}

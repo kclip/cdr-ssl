@@ -1,0 +1,4 @@
+type: "AdamW"
+lr: 5e-4
+kwargs: 
+  weight_decay: 0.0

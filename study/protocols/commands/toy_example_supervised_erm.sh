@@ -1,0 +1,1 @@
+python ./study/train_model_supervised_erm.py +protocol_name=toy_example_supervised_erm logs_subdir="toy_example/supervised_erm/" +experiment=toy_example

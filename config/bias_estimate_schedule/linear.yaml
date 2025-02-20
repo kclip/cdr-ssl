@@ -1,0 +1,3 @@
+type: "BiasEstimateLinearSchedule"
+kwargs:
+    n_epochs: ${model_training.n_epochs}

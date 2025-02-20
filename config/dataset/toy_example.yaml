@@ -1,0 +1,4 @@
+type: "TOY_EXAMPLE"
+folder: ${project_dir}/datasets/toy_example
+validation_ratio: 0.7
+kwargs: {}
