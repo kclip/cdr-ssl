@@ -10,7 +10,7 @@
 module load texlive/20220321-gcc-13.2.0-python-3.11.6
 module load anaconda3/2021.05-gcc-13.2.0
 source $(dirname $(dirname $CONDA_EXE))/etc/profile.d/conda.sh
-conda activate cppi
+conda activate cdr
 
 # Get command for this run
 RUN_COMMAND=$(sed -n "${SLURM_ARRAY_TASK_ID}p" /users/k21139912/projects/contextual-ppi/study/protocols/commands/toy_example_supervised_erm.sh)

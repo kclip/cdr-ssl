@@ -1,17 +1,5 @@
 # Context-Aware Doubly-Robust Semi-Supervised Learning
 
-<!-- Repository of paper "[Context-Aware Doubly-Robust Semi-Supervised Learning](TODO)".
-Please cite as:
-```bibtex
-@article{ruah2025context,
-    title = {TODO},
-    author = {TODO},
-    year = {2025},
-    month = {TODO},
-    journal = {arXiv preprint},
-    online = {TODO}
-}
-``` -->
 
 ## Project structure
 
@@ -39,7 +27,7 @@ Please cite as:
   - [plots_beamforming.py](study%2Fplots_beamforming.py): create `beamforming` experiment plots (see [Reproduce Experiments](#reproduce-experiments))
   - [create_protocol.py](study%2Fcreate_protocol.py): create custom grid-search protocols (see (see [Extend experiments](#extend-experiments))
 - [logs/](logs): experimental data is stored in this folder by default. Can be changed by setting the keyword argument `logs_dir=<DIR>` to a custom directory `<DIR>` when executing experiments
-- [scripts/generate_beamforming_dataset.py](scripts%2Fgenerate_beamforming_dataset.py): script used to generate the beamforming dataset from the ray-tracing data in the "[Environment Aware Communications](https://github.com/xuxiaoli-seu/Environment_Aware_Communications)" repository
+- [scripts/generate_beamforming_dataset.py](scripts%2Fgenerate_beamforming_dataset.py): script used to generate the beamforming dataset from the ray-tracing data in the "[Environment Aware Communications](https://github.com/xuxiaoli-seu/Environment_Aware_Communications)" repository. The [ray-tracing data `raw.zip` file](datasets/beamforming/raw.zip) must be unzipped before executing this script.
 
 
 
